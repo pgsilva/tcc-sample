@@ -3,17 +3,18 @@
     <div class="col-sm">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Please sign in</h3>
+          <h3 class="panel-title">Sign in</h3>
         </div>
         <div class="panel-body">
-          <form accept-charset="UTF-8" role="form">
+          <form (ngSubmit)="sendLogin()" #loginForm="ngForm" novalidate accept-charset="UTF-8" role="form">
             <fieldset>
               <div class="form-group">
                 <input
                   class="form-control"
-                  placeholder="E-mail"
-                  name="email"
+                  placeholder="User"
+                  name="user"
                   type="text"
+                  [(ngModel)]="login.user"
                 />
               </div>
               <div class="form-group">
@@ -23,6 +24,17 @@
                   name="password"
                   type="password"
                   value=""
+                  [(ngModel)]="login.pass"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Token"
+                  name="user"
+                  type="text"
+                  readonly
+                  [value]="token"
                 />
               </div>
               <input
@@ -30,8 +42,11 @@
                 type="submit"
                 value="Login"
               /><br />
-              <div class="alert alert-primary" role="alert">
+              <div *ngIf="result.login" class="alert alert-success" role="alert">
                 {{result.login}}
+              </div>
+              <div *ngIf="result.error" class="alert alert-danger" role="alert">
+                {{result.error}}
               </div>
             </fieldset>
           </form>
@@ -45,7 +60,7 @@
           <h3 class="panel-title">Sign up</h3>
         </div>
         <div class="panel-body">
-          <form accept-charset="UTF-8" role="form">
+          <form (ngSubmit)="onSubmit()" #heroForm="ngForm" novalidate accept-charset="UTF-8" role="form">
             <fieldset>
               <div class="form-group">
                 <input
@@ -53,6 +68,7 @@
                   placeholder="Name"
                   name="name"
                   type="text"
+                  [(ngModel)]="form.name"
                 />
               </div>
               <div class="form-group">
@@ -61,7 +77,7 @@
                   placeholder="Age"
                   name="age"
                   type="age"
-                  value=""
+                  [(ngModel)]="form.age"
                 />
               </div>
               <div class="form-group">
@@ -70,7 +86,7 @@
                   placeholder="E-mail"
                   name="mail"
                   type="text"
-                  value=""
+                  [(ngModel)]="form.mail"
                 />
               </div>
               <input
@@ -78,7 +94,7 @@
                 type="submit"
                 value="Submit"
               /><br />
-              <div class="alert alert-primary" role="alert">
+              <div *ngIf="result.user" class="alert alert-success" role="alert">
                 {{result.user}}
               </div>
             </fieldset>
@@ -108,7 +124,7 @@
                 (click)="listUser()"
                 value="Update"
               /><br />
-              <div class="alert alert-primary" role="alert">
+              <div *ngIf="result.users" class="alert alert-success" role="alert">
                 {{result.users}}
               </div>
             </fieldset>

@@ -47,21 +47,23 @@ public class SampleController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
 
-    @RequestMapping(value="/login", method = RequestMethod.POST)
-    public String login(@RequestBody UserAutorizeDTO login) throws
-            ServletException {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ResponseEntity<String> login(@RequestBody UserAutorizeDTO login) throws ServletException {
+		try {
+			return new ResponseEntity<>(Jwts.builder().setSubject(login.getUser()).claim("roles", "user")
+					.setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "secretkey").compact(), HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
-        return Jwts.builder().setSubject(login.getUser()).claim("roles", "user").setIssuedAt(new Date())
-                .signWith(SignatureAlgorithm.HS256, "secretkey").compact();
-    }
-    
 	@RequestMapping(value = "api/login/user", method = RequestMethod.GET)
 	public ResponseEntity<String> loginAutorize() {
 		try {
 			String msg = new String("Usuario autenticado");
-			return new ResponseEntity<>(msg	, HttpStatus.OK);
+			return new ResponseEntity<>(msg, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

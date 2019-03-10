@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import {RequestOptions, Request, RequestMethod} from '@angular/http';
+import { text } from '@angular/core/src/render3';
 
 const API = "http://localhost:8080";
 
@@ -18,4 +18,18 @@ export class UserService {
     return this.http.get(API + "/user/buscar");
   }
 
+  getToken(login) {
+    return this.http.post(API + "/login", login, { responseType: "text" });
+  }
+
+  sendLogin(token) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      }),
+      responseType: 'text' as 'text'
+    };
+    return this.http.get(API + "/api/login/user", httpOptions);
+  }
 }

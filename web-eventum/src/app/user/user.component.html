@@ -1,0 +1,119 @@
+<div class="container" style="padding-top:20px;">
+  <div class="row">
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Please sign in</h3>
+        </div>
+        <div class="panel-body">
+          <form accept-charset="UTF-8" role="form">
+            <fieldset>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="E-mail"
+                  name="email"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  value=""
+                />
+              </div>
+              <input
+                class="btn btn-lg btn-primary btn-block"
+                type="submit"
+                value="Login"
+              /><br />
+              <div class="alert alert-primary" role="alert">
+                {{result.login}}
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Sign up</h3>
+        </div>
+        <div class="panel-body">
+          <form accept-charset="UTF-8" role="form">
+            <fieldset>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Name"
+                  name="name"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="Age"
+                  name="age"
+                  type="age"
+                  value=""
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  placeholder="E-mail"
+                  name="mail"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <input
+                class="btn btn-lg btn-primary btn-block"
+                type="submit"
+                value="Submit"
+              /><br />
+              <div class="alert alert-primary" role="alert">
+                {{result.user}}
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">User</h3>
+        </div>
+        <div class="panel-body">
+          <form accept-charset="UTF-8" role="form">
+            <fieldset>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1"></label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <input
+                class="btn btn-lg btn-primary btn-block"
+                type="submit"
+                value="Update"
+              /><br />
+              <div class="alert alert-primary" role="alert">
+                {{result.users}}
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

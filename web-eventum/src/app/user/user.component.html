@@ -99,12 +99,13 @@
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
-                  rows="3"
+                  rows="5"
+                  [value]="users"
                 ></textarea>
               </div>
               <input
                 class="btn btn-lg btn-primary btn-block"
-                type="submit"
+                (click)="listUser()"
                 value="Update"
               /><br />
               <div class="alert alert-primary" role="alert">

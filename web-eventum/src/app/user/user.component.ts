@@ -1,12 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "./user.service";
-
-var result = {
-  login: "result server",
-  user: "result server",
-  users: "result server"
-};
-var users = [];
 
 @Component({
   selector: "app-user",
@@ -14,16 +7,21 @@ var users = [];
   styleUrls: ["./user.component.css"]
 })
 export class UserComponent implements OnInit {
-  constructor(private userService: UserService) {
-
-  }
+  @Input() result = {
+    login: "result server",
+    user: "result server",
+    users: "result server"
+  };
+  @Input() users = '...';
+  constructor(private userService: UserService) {}
 
   ngOnInit() {}
 
   listUser() {
     this.userService.listUsers().subscribe(data => {
-      result.users = "Success!";
-      users = data;
+      this.result.users = "Success!";
+      this.users = JSON.stringify(data);
+      console.log(this.users);
     });
   }
 }

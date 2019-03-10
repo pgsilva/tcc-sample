@@ -18,22 +18,4 @@ export class UserService {
     return this.http.get(API + "/user/buscar");
   }
 
-  login(login) {
-    const token: string = this.getToken(login);
-
-    const head = new Headers();
-    head.append("Content-Type", "application/json");
-    head.append("authentication", token);
-
-    let options = new RequestOptions({ headers: head });
-
-    return this.http.get(API + "/api/login/user", options);
-  }
-
-  getToken(login) {
-    this.http.post(API + "/login", login.user).subscribe(data => {
-      return data;
-    });
-    return null;
-  }
 }

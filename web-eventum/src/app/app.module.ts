@@ -7,9 +7,10 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { UserComponent } from "./user/user.component";
 import { LoginComponent } from "./login/login.component";
+import { FormComponent } from './form/form.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, LoginComponent],
+  declarations: [AppComponent, UserComponent, LoginComponent, FormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

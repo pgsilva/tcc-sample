@@ -6,50 +6,7 @@
           <h3 class="panel-title">Sign in</h3>
         </div>
         <div class="panel-body">
-          <form (ngSubmit)="sendLogin()" #loginForm="ngForm" novalidate accept-charset="UTF-8" role="form">
-            <fieldset>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  placeholder="User"
-                  name="user"
-                  type="text"
-                  [(ngModel)]="login.user"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  placeholder="Password"
-                  name="password"
-                  type="password"
-                  value=""
-                  [(ngModel)]="login.pass"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  placeholder="Token"
-                  name="user"
-                  type="text"
-                  readonly
-                  [value]="token"
-                />
-              </div>
-              <input
-                class="btn btn-lg btn-primary btn-block"
-                type="submit"
-                value="Login"
-              /><br />
-              <div *ngIf="result.login" class="alert alert-success" role="alert">
-                {{result.login}}
-              </div>
-              <div *ngIf="result.error" class="alert alert-danger" role="alert">
-                {{result.error}}
-              </div>
-            </fieldset>
-          </form>
+          <app-login></app-login>
         </div>
       </div>
     </div>
@@ -60,45 +17,7 @@
           <h3 class="panel-title">Sign up</h3>
         </div>
         <div class="panel-body">
-          <form (ngSubmit)="onSubmit()" #heroForm="ngForm" novalidate accept-charset="UTF-8" role="form">
-            <fieldset>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  placeholder="Name"
-                  name="name"
-                  type="text"
-                  [(ngModel)]="form.name"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  placeholder="Age"
-                  name="age"
-                  type="age"
-                  [(ngModel)]="form.age"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  placeholder="E-mail"
-                  name="mail"
-                  type="text"
-                  [(ngModel)]="form.mail"
-                />
-              </div>
-              <input
-                class="btn btn-lg btn-primary btn-block"
-                type="submit"
-                value="Submit"
-              /><br />
-              <div *ngIf="result.user" class="alert alert-success" role="alert">
-                {{result.user}}
-              </div>
-            </fieldset>
-          </form>
+          <app-form></app-form>
         </div>
       </div>
     </div>
@@ -111,7 +30,6 @@
           <form accept-charset="UTF-8" role="form">
             <fieldset>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1"></label>
                 <textarea
                   class="form-control"
                   id="exampleFormControlTextarea1"
@@ -124,8 +42,12 @@
                 (click)="listUser()"
                 value="Update"
               /><br />
-              <div *ngIf="result.users" class="alert alert-success" role="alert">
-                {{result.users}}
+              <div
+                *ngIf="result.users"
+                class="alert alert-success"
+                role="alert"
+              >
+                {{ result.users }}
               </div>
             </fieldset>
           </form>

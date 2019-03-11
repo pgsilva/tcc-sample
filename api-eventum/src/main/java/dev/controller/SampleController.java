@@ -37,7 +37,7 @@ public class SampleController {
 		}
 	}
 
-	@RequestMapping(value = "/user/novo", method = RequestMethod.POST)
+	@RequestMapping(value = "api/user/novo", method = RequestMethod.POST)
 	public ResponseEntity<Integer> cadastrarUsuario(@RequestBody UserDTO form) {
 		try {
 			User u = userService.cadastrarUser(form);

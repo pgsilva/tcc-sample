@@ -10,8 +10,15 @@ const API = "http://localhost:8080";
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  submitUser(form) {
-    return this.http.post(API + "/user/novo", form);
+  submitUser(form,token) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      }),
+      responseType: 'text' as 'text'
+    };
+    return this.http.post(API + "/api/user/novo", form, httpOptions);
   }
 
   listUsers() {

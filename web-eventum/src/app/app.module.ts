@@ -8,9 +8,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { UserComponent } from "./user/user.component";
 import { LoginComponent } from "./login/login.component";
 import { FormComponent } from './form/form.component';
+import { MenuTopComponent } from './menu-top/menu-top.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, LoginComponent, FormComponent],
+  declarations: [AppComponent, UserComponent, LoginComponent, FormComponent, MenuTopComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

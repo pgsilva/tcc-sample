@@ -30,15 +30,21 @@ public class UserService {
 				form.add(dto);
 			}
 		}
-
 		return form;
 	}
 
 	public User cadastrarUser(UserDTO form) {
 		User user = new User();
-
+		
 		BeanUtils.copyProperties(form, user);
 		userRepo.save(user);
 		return user;
+	}
+	
+	public void gerarAcesso(UserDTO form) {
+		if(form.getMail()!=null && form.getName()!=null) {
+			
+		}
+		
 	}
 }

@@ -6,6 +6,8 @@ public class UserDTO {
 	private String name;
 	private Integer age;
 	private String mail;
+	private String pass;
+	private String user;
 
 	public UserDTO() {
 	}
@@ -48,6 +50,22 @@ public class UserDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
 
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
+	
 }

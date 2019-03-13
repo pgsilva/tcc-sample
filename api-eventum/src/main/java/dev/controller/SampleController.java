@@ -51,7 +51,7 @@ public class SampleController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<String> login(@RequestBody UserAutorizeDTO login) throws ServletException {
 		try {
-			return new ResponseEntity<>(Jwts.builder().setSubject(login.getUser()).claim("roles", "user")
+			return new ResponseEntity<>(Jwts.builder().setSubject(login.getPass()).claim("roles", "user")
 					.setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256, "secretkey").compact(), HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();

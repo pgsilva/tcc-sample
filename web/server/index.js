@@ -21,6 +21,7 @@ app.use(express.static("../web-eventum/dist/web-eventum")); //liberando uma past
 app.get("/msg", (req, res) => {
   console.log("otavio acorda");
   io.write('Eu amo isso');
+  res.send('ok').status(200);
 });
 http.listen(port, () =>
   console.log(`iam bb8 ready and listening on port ${port}!`)

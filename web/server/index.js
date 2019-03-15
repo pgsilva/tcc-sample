@@ -3,7 +3,6 @@ const app = express();
 const http = require("http").Server(app);
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const io = require("./client");
 const port = process.env.PORT || 3000;
 
 app.use(cors());
@@ -18,9 +17,10 @@ app.use(
 app.use(bodyParser.json());
 app.use(express.static("../web-eventum/dist/web-eventum")); //liberando uma pasta para ser acessivel ao navegador
 
-app.get("/msg", (req, res) => {
-  console.log("otavio acorda");
-  io.write('Eu amo isso');
+app.get("/msg", async(req, res) => {
+  const io = require("./client");
+
+  await io.write('STAR WARS');
   res.send('ok').status(200);
 });
 http.listen(port, () =>

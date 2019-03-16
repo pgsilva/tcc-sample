@@ -37,7 +37,6 @@ class Chat:
     def __init__(self):
         self.leituraArquivo = self.lerDataFrame('originalData.csv')
         self.flag = True
-        print(self.leituraArquivo)
 
     def lerDataFrame(self, arquivo):
         classificacoes = pd.read_csv(arquivo, encoding='utf-8')
@@ -237,7 +236,7 @@ class Chat:
     def respondeServer(self, request):
 
         while(self.flag):
-            user_response = request
+            user_response = request.decode("utf-8")
 
             if(user_response != 'tchau'):
 
@@ -281,4 +280,5 @@ class Chat:
                                "\"," + str(tipo_pergunta))
             else:
                 return str('Mr. Morales: Até logo')
+                self.flag = False
                 

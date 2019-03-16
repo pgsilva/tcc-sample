@@ -1,4 +1,5 @@
-var net = require("net");
+let net = require("net");
+let app = require("../morales");
 
 function getConn(connName) {
   var option = {
@@ -25,10 +26,6 @@ function getConn(connName) {
 
   //client.setTimeout(2000);
   client.setEncoding("utf8");
-
-  client.on("data", data => {
-    console.log("Server return data : " + data);
-  });
 
   client.on("end", () => {
     console.log("Client socket disconnect. ");

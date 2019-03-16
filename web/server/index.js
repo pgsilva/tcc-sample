@@ -20,9 +20,17 @@ app.use(express.static("../web-eventum/dist/web-eventum")); //liberando uma past
 app.get("/msg", async(req, res) => {
   const io = require("./client");
 
-  await io.write('STAR WARS');
+  await io.write('meu boleto atrasou');
   res.send('ok').status(200);
 });
+
+app.get("/tchau", async(req, res) => {
+  const io = require("./client");
+
+  await io.write('tchau');
+  res.send('ok').status(200);
+});
+
 http.listen(port, () =>
   console.log(`iam bb8 ready and listening on port ${port}!`)
 );

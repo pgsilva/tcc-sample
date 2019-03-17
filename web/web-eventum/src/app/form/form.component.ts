@@ -1,7 +1,6 @@
 import { UserService } from "./../user/user.service";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Component, OnInit, Input } from "@angular/core";
-import { environment } from "../../environments/environment";
 
 import { UserForm } from "../models/forms";
 
@@ -15,8 +14,7 @@ export class FormComponent implements OnInit {
     login: null,
     error: null
   };
-
-  @Input() token = environment.token_session;
+  @Input() token = "";
 
   form: FormGroup;
   private user: UserForm = new UserForm();
@@ -37,11 +35,11 @@ export class FormComponent implements OnInit {
   }
 
   sendUser() {
-    this.token = environment.token_session;
+    this.token = localStorage.getItem("currentUser");
     this.user = new UserForm(this.form.get("userForm").value);
     console.warn(this.user);
 
-    this.userService.submitUser(this.user, this.token).subscribe(id => {
+    this.userService.submitUser(this.user).subscribe(id => {
       this.result.login = "Success! [ID: " + id + " ]";
     });
   }

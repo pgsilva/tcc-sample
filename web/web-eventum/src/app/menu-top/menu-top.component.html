@@ -3,7 +3,7 @@
   role="navigation"
 >
   <div class="container">
-    <a class="navbar-brand" href="#">Eventum</a>
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">Eventum</a>
     <button
       class="navbar-toggler border-0"
       type="button"
@@ -19,7 +19,11 @@
             >About</a
           >
         </li>
-        <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+        <li class="nav-item">
+          <a routerLink="/chat" routerLinkActive="active" class="nav-link"
+            >Chat</a
+          >
+        </li>
         <li class="nav-item"><a href="#" class="nav-link">Service</a></li>
         <li class="nav-item"><a href="#" class="nav-link">More</a></li>
       </ul>

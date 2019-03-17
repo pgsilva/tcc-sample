@@ -10,9 +10,10 @@ import { LoginComponent } from "./login/login.component";
 import { FormComponent } from './form/form.component';
 import { MenuTopComponent } from './menu-top/menu-top.component';
 import { AboutComponent } from './about/about.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, LoginComponent, FormComponent, MenuTopComponent, AboutComponent],
+  declarations: [AppComponent, UserComponent, LoginComponent, FormComponent, MenuTopComponent, AboutComponent, ChatComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

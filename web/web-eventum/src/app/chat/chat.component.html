@@ -1,0 +1,29 @@
+<div class="container" style="padding-top:100px;">
+  <div class="container-fluid">
+    <div class="row">
+      <h2>Chat Morales</h2>
+      <hr />
+    </div>
+    <div class="row">
+      <div class="well" style="height:200px; padding:15px;">
+        <div *ngFor="let item of messageArray">
+          <span>{{ item.msg }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="messageText" />
+      </div>
+      <div class="col-sm-2">
+        <button
+          type="button"
+          class="btn btn-success pull-right"
+          (click)="sendMessage(messageText)"
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

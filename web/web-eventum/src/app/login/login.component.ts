@@ -1,7 +1,6 @@
 import { UserService } from "./../user/user.service";
 import { FormControl, FormGroup } from "@angular/forms";
 import { Component, OnInit, Input } from "@angular/core";
-import { environment } from "../../environments/environment";
 
 import { LoginForm } from "../models/forms";
 
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit {
   };
 
   @Input() token = "";
-
   form: FormGroup;
   private login: LoginForm = new LoginForm();
 
@@ -42,17 +40,21 @@ export class LoginComponent implements OnInit {
 
     if (this.login.user != null) {
       this.userService.getToken(this.login).subscribe(data => {
-        this.token = data;
-        this.userService.sendLogin(this.token).subscribe(data => {
-          this.result.login = data;
-          environment.token_session = this.token;
-          console.warn(environment.token_session);
-          this.token = null;
-          this.login = null;
-        });
+        if (data) {
+          this.token = localStorage.getItem("currentUser");
+        }
+      });
+
+      this.userService.sendLogin().subscribe(data => {
+        this.result.login = data;
+        this.login = null;
       });
     } else {
       this.result.error = "Login Invalid";
     }
+  }
+
+  logout(){
+    this.userService.logout()
   }
 }

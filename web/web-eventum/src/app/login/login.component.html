@@ -33,11 +33,19 @@
         [value]="token"
       />
     </div>
-    <input
-      class="btn btn-lg btn-primary btn-block"
-      type="submit"
-      value="Login"
-    /><br />
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <input
+        class="btn btn-lg btn-success btn-block"
+        type="submit"
+        value="Login"
+      />
+      <input
+        class="btn btn-lg btn-danger btn-block"
+        (click)="logout()"
+        value="Logout"
+      />
+    </div>
+
     <div *ngIf="result.login" class="alert alert-success" role="alert">
       {{ result.login }}
     </div>

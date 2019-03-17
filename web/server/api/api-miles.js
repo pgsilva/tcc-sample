@@ -13,25 +13,31 @@ api.getCredencials = async (req, res, next) => {
 
 api.sendQuestion = async (req, res, next) => {
   if (req.body && req.body.msg) {
-    await io.write(req.body.msg);
-  // TODO request bate primeiro o write depois o data, testar com write em functions separadas 
-  //  let response = await awaitResponse();
-    console.log(response);
-    res.send("ok");
+    let response = awaitResponse(req.body.msg);
 
-    // if (response) {
-    //   res.status(200);
-    //   res.json({ msg: response });
-    //   next();
-  } else {
-    res.send(Error("Erro no corpo da requisicao")).status(500);
+    response.then(data => {
+      console.log("Server return data : " + data);
+      if (data) {
+        res.status(200);
+        res.json({ msg: data });
+        next();
+      } else {
+        res.send(Error("Erro no corpo da requisicao")).status(500);
+      }
+    });
+  }
+
+  async function awaitResponse(info) {
+    return new Promise((resolve, reject) => {
+      io.write(info);
+      io.on("data", msg => {
+        if (msg) {
+          resolve(msg);
+        } else {
+          reject(Error("Error server chat"));
+        }
+      });
+    });
   }
 };
-
-async function awaitResponse() {
-  io.on("data", msg => {
-    console.log("Server return data : " + msg);
-    return msg;
-  });
-}
 module.exports = api;

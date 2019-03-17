@@ -24,7 +24,7 @@ function getConn(connName) {
     );
   });
 
-  //client.setTimeout(2000);
+  client.setTimeout(2000);
   client.setEncoding("utf8");
 
   client.on("end", () => {

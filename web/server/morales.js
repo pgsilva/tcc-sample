@@ -33,4 +33,3 @@ http.listen(port, () =>
   console.log(`morales ready and listening on port ${port}!`)
 );
 
-module.exports = app;

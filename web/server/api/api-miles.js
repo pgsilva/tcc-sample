@@ -17,13 +17,9 @@ api.sendQuestion = async (req, res, next) => {
 
     response.then(data => {
       console.log("Server return data : " + data);
-      if (data) {
-        res.status(200);
-        res.json({ msg: data });
-        next();
-      } else {
-        res.send(Error("Erro no corpo da requisicao")).status(500);
-      }
+      res.status(200);
+      res.json({ msg: data });
+      next();
     });
   }
 

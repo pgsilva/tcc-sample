@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { Component, OnInit, Input } from "@angular/core";
 
 import { LoginForm } from "../models/forms";
+import { LoginService } from "./login.service";
 
 @Component({
   selector: "app-login",
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   private login: LoginForm = new LoginForm();
 
-  constructor(private userService: UserService) {
+  constructor(private loginService: LoginService) {
     this.form = this.createFormGroup();
   }
 
@@ -34,27 +35,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  sendLogin() {
+  getToken() {
     this.login = new LoginForm(this.form.get("loginForm").value);
     console.warn(this.login);
-
     if (this.login.user != null) {
-      this.userService.getToken(this.login).subscribe(data => {
+      this.loginService.getToken(this.login).subscribe(data => {
         if (data) {
-          this.token = localStorage.getItem("currentUser");
+          console.log(data);
+          this.sendLogin();
         }
       });
-
-      this.userService.sendLogin().subscribe(data => {
-        this.result.login = data;
-        this.login = null;
-      });
-    } else {
+    }else {
       this.result.error = "Login Invalid";
     }
   }
+  sendLogin() {
+    this.loginService.sendLogin().subscribe(data => {
+      console.log(data);
+      this.login = null;
+    });
+  }
 
-  logout(){
-    this.userService.logout()
+  logout() {
+    this.loginService.logout();
   }
 }

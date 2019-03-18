@@ -13,27 +13,28 @@ api.getCredencials = async (req, res, next) => {
 
 api.sendQuestion = async (req, res, next) => {
   if (req.body && req.body.msg) {
-    let response = awaitResponse(req.body.msg);
+    let response = await awaitResponse(req.body.msg);
 
-    response.then(data => {
-      console.log("Server return data : " + data);
+    if (response) {
+      console.log("Server return data : " + response);
       res.status(200);
-      res.json({ msg: data });
+      res.json({ msg: response });
       next();
-    });
-  }
-
-  async function awaitResponse(info) {
-    return new Promise((resolve, reject) => {
-      io.write(info);
-      io.on("data", msg => {
-        if (msg) {
-          resolve(msg);
-        } else {
-          reject(Error("Error server chat"));
-        }
-      });
-    });
+    }
   }
 };
+
+function awaitResponse(info) {
+  return new Promise((resolve, reject) => {
+    io.write(info);
+    io.on("data", msg => {
+      if (msg) {
+        resolve(msg);
+      } else {
+        reject(Error("Error server chat"));
+      }
+    });
+  });
+}
+
 module.exports = api;

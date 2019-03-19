@@ -19,7 +19,7 @@ except:
 
 while 42:
     print('waiting for a connection')
-    print("Mr. Morales: Olá, quais são as suas dúvidas? Pode contar comigo, o seu amigo da vizinhança")
+   
     connection, client_address = sock.accept()
 
     try:

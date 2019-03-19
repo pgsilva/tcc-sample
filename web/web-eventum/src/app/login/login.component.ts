@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       this.loginService.getToken(this.login).subscribe(data => {
         if (data) {
           console.log(data);
+          this.token = localStorage.getItem("currentUser")
           this.sendLogin();
         }
       });

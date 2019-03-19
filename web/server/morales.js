@@ -1,35 +1,37 @@
-const express = require("express");
-const app = express();
-const http = require("http").Server(app);
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const port = process.env.PORT || 3000;
-const route = require("./routes/routing-miles");
+const cluster = require("cluster");
+let chalk = require('chalk');
 
-app.use(cors());
-// parse application/x-www-form-urlencoded
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+if (cluster.isMaster) {
+  let cont = 1;
+  let worker1 = cluster.fork({ WorkerName: "worker1" });
 
-// parse application/json
-app.use(bodyParser.json());
-//angular app
-app.use(express.static("../web-eventum/dist/web-eventum"));
+  cluster.on("listening", worker => {
+    console.log(`cluster ${worker.process.pid} conectado`);
+  });
 
-//ENDPOINTS CONFIG
-let logger = (req, res, next) => {
-  //TODO config authentication
-  req.logger = new Date().toISOString();
-  console.log("[LOG] Requested at: " + req.logger + "");
-  next();
-};
-app.use(logger);
-app.use("/morales/chat", route);
+  cluster.on("disconnect", worker => {
+    console.log(`cluster ${worker.process.pid} desconectado`);
+  });
 
-http.listen(port, () =>
-  console.log(`morales ready and listening on port ${port}!`)
-);
-
+  cluster.on("exit", (worker, code, signal) => {
+    console.log(`cluster ${worker.process.pid} perdido`);
+    if (worker == worker1) {
+      console.log(chalk.red("tentativa: " + cont));
+      setTimeout(() => {
+        cont++;
+        if (cont < 10) {
+          worker1 = cluster.fork({ WorkerName: "worker1" });
+        } else {
+          worker1 = cluster.fork({ WorkerName: "worker2" });
+          console.log(chalk.red("worker 1 nao subiu, alternando para o worker 2"));
+        }
+      }, 10000);
+    }
+  });
+} else {
+  if (process.env.WorkerName == "worker1") {
+    require("./morales/morales_chat");
+  } else {
+    require("./morales/morales_nochat");
+  }
+}

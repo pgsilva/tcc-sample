@@ -1,75 +1,75 @@
-texto,classificacao
-"Olá, como vai você?",10
-"Oi",10
-"oie",10
-"oii",10
-"salve",10
-"tudo bom?",10
-"Eai",10
-"Tudo bem?",10
-"Até logo",20
-"Até mais",20
-"Te vejo por aí",20
-"Adeus",20
-"Tchau",20
-"Quem é você?",30
-"Quantos anos você tem?",30
-"Onde você mora?",30
-"Você tem amigos?",30
-"Qual é o seu nome?",30
-"Você pode me ajudar?",30
-"Você sabe sobre tudo?",30
-"Qual é o nome do seu criador?",30
-"Você tem pais?",30
-"Onde você nasceu?",30
-"Você se sente sozinho?",30
-"olá, eu estou com um problema com o meu pagamento, você poderia me ajudar?",0
-"a alura possui cursos sobre java ?",2
-"o meu boleto não chegou, o que eu faço?",1
-"estou com um problema com o meu pagamento",0
-"o meu boleto não chegou, o que eu faço?",1
-"estou com problemas no meu pagamento",0
-"vocês possuem cursos sobre java?",1
-"estou com um problema no meu pagamento, poderia me ajudar?",0
-"estou com problemas no meu cartão de crédito, o que eu faço?",0
-"ola, meu pagamento atrasou, quero uma segunda via",0
-"estou com problemas no meu pagamento, poderia me ajudar?",0
-"eu encontrei um erro na aula 7 sobre java",1
-"meu boleto desse mes atrasou",0
-"meu boleto desse mes atrasou",0
-"oi",10
-"oie",10
-"quando que vence o meu pagamento?",0
-"meu boleto desse mes atrasou",0
-"encontrei um erro na aula 5 sobre java debug",2
-"quando que vence o meu pagamento?",0
-"em que horário que posso realizar os cursos ?",1
-"meu boleto desse mes atrasou",0
-"tenho uma dúvida referente a aula de interfaces java",2
-"eu posso pagar a mensalidade com qualquer cartão de crédito?",0
-"estou com problemas para acessar a plataforma",0
-"meu boleto desse mes atrasou",0
-"encontrei um erro na aula 4 sobre java debug",1
-"encontrei um erro na aula 4 sobre java debug",1
-"meu boleto desse mes atrasou",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"meu boleto desse mes atrasou",0
-"encontrei um erro na aula 4 sobre java debug",1
-"encontrei um erro na aula 4 sobre java debug",1
-"meu boleto desse mes atrasou",0
-"meu boleto desse mes atrasou",0
-"meu boleto desse mes atrasou",0
-"encontrei um erro na aula 4 sobre java debug",1
-"encontrei um erro na aula 4 sobre java debug",1
-"meu boleto desse mes atrasou",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"estou com problemas para acessar a plataforma",0
-"oi",0
-"meu boleto atrasou",0
+texto; classificacao
+"Olá, como vai você?";10
+"Oi";10
+"oie";10
+"oii";10
+"salve";10
+"tudo bom?";10
+"Eai";10
+"Tudo bem?";10
+"Até logo";20
+"Até mais";20
+"Te vejo por aí";20
+"Adeus";20
+"Tchau";20
+"Quem é você?";30
+"Quantos anos você tem?";30
+"Onde você mora?";30
+"Você tem amigos?";30
+"Qual é o seu nome?";30
+"Você pode me ajudar?";30
+"Você sabe sobre tudo?";30
+"Qual é o nome do seu criador?";30
+"Você tem pais?";30
+"Onde você nasceu?";30
+"Você se sente sozinho?";30
+"olá, eu estou com um problema com o meu pagamento, você poderia me ajudar?";0
+"a alura possui cursos sobre java ?";2
+"o meu boleto não chegou, o que eu faço?";1
+"estou com um problema com o meu pagamento";0
+"o meu boleto não chegou, o que eu faço?";1
+"estou com problemas no meu pagamento";0
+"vocês possuem cursos sobre java?";1
+"estou com um problema no meu pagamento, poderia me ajudar?";0
+"estou com problemas no meu cartão de crédito, o que eu faço?";0
+"ola, meu pagamento atrasou, quero uma segunda via";0
+"estou com problemas no meu pagamento, poderia me ajudar?";0
+"eu encontrei um erro na aula 7 sobre java";1
+"meu boleto desse mes atrasou";0
+"meu boleto desse mes atrasou";0
+"oi";10
+"oie";10
+"quando que vence o meu pagamento?";0
+"meu boleto desse mes atrasou";0
+"encontrei um erro na aula 5 sobre java debug";2
+"quando que vence o meu pagamento?";0
+"em que horário que posso realizar os cursos ?";1
+"meu boleto desse mes atrasou";0
+"tenho uma dúvida referente a aula de interfaces java";2
+"eu posso pagar a mensalidade com qualquer cartão de crédito?";0
+"estou com problemas para acessar a plataforma";0
+"meu boleto desse mes atrasou";0
+"encontrei um erro na aula 4 sobre java debug";1
+"encontrei um erro na aula 4 sobre java debug";1
+"meu boleto desse mes atrasou";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"meu boleto desse mes atrasou";0
+"encontrei um erro na aula 4 sobre java debug";1
+"encontrei um erro na aula 4 sobre java debug";1
+"meu boleto desse mes atrasou";0
+"meu boleto desse mes atrasou";0
+"meu boleto desse mes atrasou";0
+"encontrei um erro na aula 4 sobre java debug";1
+"encontrei um erro na aula 4 sobre java debug";1
+"meu boleto desse mes atrasou";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"estou com problemas para acessar a plataforma";0
+"oi";0
+"meu boleto atrasou";0
